@@ -12,6 +12,5 @@ const AppLayout = ({ children }) => {
       <style jsx global>{globalStyles}</style>
     </>
   )
-
 }
 export default AppLayout

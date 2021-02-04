@@ -7,17 +7,17 @@ import { colors } from '../styles/theme'
 
 import { loginWithGithub, onAuthStateChanged } from '../firebase/client'
 
-export default function Home() {
+export default function Home () {
   const [user, setUser] = useState(undefined)
-  useEffect(()=>{
+  useEffect(() => {
     onAuthStateChanged(setUser)
   }, [])
-  
+
   const handleClick = () => {
     loginWithGithub().then(user => {
       console.log('singueado', user)
       setUser(user)
-    }).catch(err=> console.error(err))
+    }).catch(err => console.error(err))
   }
   return (
     <div>
@@ -34,8 +34,8 @@ export default function Home() {
             Talk about development <br />with developers 👩‍💻  🧑‍💻
           </h2>
           <div>
-            {user===null && 
-            <Button onClick={ handleClick }><GitHub fill='#fff' width='24' height='24' /> Login with GitHub</Button>
+            {user === null &&
+              <Button onClick={handleClick}><GitHub fill='#fff' width='24' height='24' /> Login with GitHub</Button>
             }
             {
               user && user.avatar_url &&
@@ -44,7 +44,7 @@ export default function Home() {
                 <strong>{user.username}</strong>
               </div>
             }
-            
+
           </div>
         </section>
       </AppLayout>
@@ -76,7 +76,6 @@ export default function Home() {
         `}
 
       </style>
-
 
     </div>
   )

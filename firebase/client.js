@@ -1,33 +1,32 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCgL_tjR-eU-xrt-pBiLfCwYuVpqeBrYBg",
-  authDomain: "devter-7577b.firebaseapp.com",
-  projectId: "devter-7577b",
-  storageBucket: "devter-7577b.appspot.com",
-  messagingSenderId: "928720443380",
-  appId: "1:928720443380:web:6505d1e630fe173c1bcba1",
-  measurementId: "G-H0TKLJRKLW"
-};
+  apiKey: 'AIzaSyCgL_tjR-eU-xrt-pBiLfCwYuVpqeBrYBg',
+  authDomain: 'devter-7577b.firebaseapp.com',
+  projectId: 'devter-7577b',
+  storageBucket: 'devter-7577b.appspot.com',
+  messagingSenderId: '928720443380',
+  appId: '1:928720443380:web:6505d1e630fe173c1bcba1',
+  measurementId: 'G-H0TKLJRKLW'
+}
 !firebase.apps.length &&
   firebase.initializeApp(firebaseConfig)
 const mapFirebaseUserToUser = user => {
   console.log(user)
-  if(user){
-    const { displayName, email, photoURL } = user 
-    return{
-          username: displayName,
-          avatar_url: photoURL,
-          email
-        }
-  }else{
+  if (user) {
+    const { displayName, email, photoURL } = user
+    return {
+      username: displayName,
+      avatar_url: photoURL,
+      email
+    }
+  } else {
     return null
   }
-  
 }
 
 export const onAuthStateChanged = (onChange) => {
-  return firebase.auth().onAuthStateChanged( user => {
+  return firebase.auth().onAuthStateChanged(user => {
     const normalizedUser = mapFirebaseUserToUser(user)
     console.log(normalizedUser)
     onChange(normalizedUser)

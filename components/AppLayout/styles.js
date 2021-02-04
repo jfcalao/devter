@@ -1,6 +1,5 @@
 import css from 'styled-jsx/css'
 
-
 import { fonts, colors, breakpoints } from '../../styles/theme'
 import { addOpacityColor } from '../../styles/utils'
 
@@ -22,7 +21,6 @@ export const globalStyles = css.global`
         box-sizing: border-box;
       }
 `
-
 
 export default css`
       div{
