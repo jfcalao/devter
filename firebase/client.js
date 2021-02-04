@@ -11,16 +11,30 @@ const firebaseConfig = {
 };
 !firebase.apps.length &&
   firebase.initializeApp(firebaseConfig)
+const mapFirebaseUserToUser = user => {
+  console.log(user)
+  if(user){
+    const { displayName, email, photoURL } = user 
+    return{
+          username: displayName,
+          avatar_url: photoURL,
+          email
+        }
+  }else{
+    return null
+  }
+  
+}
+
+export const onAuthStateChanged = (onChange) => {
+  return firebase.auth().onAuthStateChanged( user => {
+    const normalizedUser = mapFirebaseUserToUser(user)
+    console.log(normalizedUser)
+    onChange(normalizedUser)
+  })
+}
+
 export const loginWithGithub = () => {
   const gitHubProvider = new firebase.auth.GithubAuthProvider()
-  return firebase.auth().signInWithPopup(gitHubProvider).then(user=>{
-    const { additionalUserInfo } = user
-      const { username, profile } = additionalUserInfo
-      const { avatar_url, blog } = profile
-      return {
-        username,
-        avatar_url,
-        blog
-      }
-  })
+  return firebase.auth().signInWithPopup(gitHubProvider)
 }
