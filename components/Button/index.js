@@ -1,11 +1,9 @@
-import { colors } from '../../styles/theme'
+import { colors } from "../../styles/theme"
 
 const Button = ({ children, onClick }) => {
   return (
     <>
-      <button onClick={onClick}>
-        {children}
-      </button>
+      <button onClick={onClick}>{children}</button>
       <style jsx>
         {`
           button {
@@ -18,18 +16,17 @@ const Button = ({ children, onClick }) => {
             font-weight: 800;
             cursor: pointer;
             outline: 0;
-            transition: opacity .3s ease;
+            transition: opacity 0.3s ease;
             display: flex;
             align-items: center;
           }
-          button > :global(svg){
+          button > :global(svg) {
             margin-right: 8px;
           }
           button:hover {
-            opacity: .7;
+            opacity: 0.7;
           }
         `}
-
       </style>
     </>
   )
