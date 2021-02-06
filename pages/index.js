@@ -6,6 +6,7 @@ import GitHub from "../components/Icons/GitHub"
 import { colors } from "../styles/theme"
 
 import { loginWithGithub, onAuthStateChanged } from "../firebase/client"
+import Avatar from "../components/Avatar"
 
 export default function Home() {
   const [user, setUser] = useState(undefined)
@@ -41,10 +42,10 @@ export default function Home() {
               </Button>
             )}
             {user && user.avatar_url && (
-              <div>
-                <img src={user.avatar_url}></img>
-                <strong>{user.username}</strong>
-              </div>
+              <Avatar
+                profilePicture={user.avatar_url}
+                userName={user.username}
+              ></Avatar>
             )}
           </div>
         </section>
