@@ -7,6 +7,7 @@ import { colors } from "styles/theme"
 
 import { loginWithGithub, onAuthStateChanged } from "firebase/client"
 import Avatar from "components/Avatar"
+import Logo from "components/Icons/Logo"
 
 export default function Home() {
   const [user, setUser] = useState(undefined)
@@ -29,7 +30,7 @@ export default function Home() {
       </Head>
       <AppLayout>
         <section>
-          <img src="/devter-logo.png" alt="Logo"></img>
+          <Logo width="100"></Logo>
           <h1>DevTer</h1>
           <h2>
             Talk about development <br />
@@ -42,10 +43,7 @@ export default function Home() {
               </Button>
             )}
             {user && user.avatar_url && (
-              <Avatar
-                profilePicture={user.avatar_url}
-                userName={user.username}
-              ></Avatar>
+              <Avatar src={user.avatar_url} userName={user.username}></Avatar>
             )}
           </div>
         </section>
@@ -59,9 +57,6 @@ export default function Home() {
             height: 100%;
           }
 
-          img {
-            width: 120px;
-          }
           h1 {
             color: ${colors.primary};
             font-weight: 800;

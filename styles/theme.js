@@ -5,8 +5,8 @@ export const fonts = {
 export const colors = {
   black: "#000000",
   white: "#ffffff",
-  primary: "#0099ff",
-  secondary: "#1c5480",
+  primary: "#0049ff",
+  secondary: "#0099ff",
 }
 export const breakpoints = {
   mobile: "520px",
