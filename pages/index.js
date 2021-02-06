@@ -1,12 +1,12 @@
 import Head from "next/head"
 import { useEffect, useState } from "react"
-import AppLayout from "../components/AppLayout"
-import Button from "../components/Button"
-import GitHub from "../components/Icons/GitHub"
-import { colors } from "../styles/theme"
+import AppLayout from "components/AppLayout"
+import Button from "components/Button"
+import GitHub from "components/Icons/GitHub"
+import { colors } from "styles/theme"
 
-import { loginWithGithub, onAuthStateChanged } from "../firebase/client"
-import Avatar from "../components/Avatar"
+import { loginWithGithub, onAuthStateChanged } from "firebase/client"
+import Avatar from "components/Avatar"
 
 export default function Home() {
   const [user, setUser] = useState(undefined)
