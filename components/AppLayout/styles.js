@@ -17,6 +17,10 @@ export const globalStyles = css.global`
     padding: 0;
     margin: 0;
   }
+  textarea,
+  input {
+    font-family: ${fonts.base};
+  }
   * {
     box-sizing: border-box;
   }

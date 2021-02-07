@@ -6,12 +6,13 @@ import useUser from "hooks/useUser"
 
 const HomePage = () => {
   const [devitList, setDevitList] = useState([])
-  useEffect(() => {
-    fetch("http://localhost:3000/api/statuses/home_timeline")
-      .then((res) => res.json())
-      .then(setDevitList)
-  }, [])
   const user = useUser()
+  useEffect(() => {
+    user &&
+      fetch("http://localhost:3000/api/statuses/home_timeline")
+        .then((res) => res.json())
+        .then(setDevitList)
+  }, [user])
   return (
     <>
       <AppLayout>
@@ -19,17 +20,16 @@ const HomePage = () => {
           <h2>Inicio</h2>
         </header>
         <section>
-          {user &&
-            devitList.map((devit) => {
-              return (
-                <Devit
-                  key={devit.id}
-                  avatar={devit.avatar}
-                  message={devit.message}
-                  username={devit.username}
-                ></Devit>
-              )
-            })}
+          {devitList.map((devit) => {
+            return (
+              <Devit
+                key={devit.id}
+                avatar={devit.avatar}
+                message={devit.message}
+                username={devit.username}
+              ></Devit>
+            )
+          })}
         </section>
         <nav></nav>
       </AppLayout>
