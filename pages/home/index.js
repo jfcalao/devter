@@ -1,6 +1,8 @@
 import AppLayout from "components/AppLayout"
 import { useState, useEffect } from "react"
 import Devit from "components/Devit"
+import { colors } from "styles/theme"
+import useUser from "hooks/useUser"
 
 const HomePage = () => {
   const [devitList, setDevitList] = useState([])
@@ -9,6 +11,7 @@ const HomePage = () => {
       .then((res) => res.json())
       .then(setDevitList)
   }, [])
+  const user = useUser()
   return (
     <>
       <AppLayout>
@@ -16,34 +19,37 @@ const HomePage = () => {
           <h2>Inicio</h2>
         </header>
         <section>
-          {devitList.map((devit) => {
-            return (
-              <Devit
-                key={devit.id}
-                avatar={devit.avatar}
-                message={devit.message}
-                username={devit.username}
-              ></Devit>
-            )
-          })}
+          {user &&
+            devitList.map((devit) => {
+              return (
+                <Devit
+                  key={devit.id}
+                  avatar={devit.avatar}
+                  message={devit.message}
+                  username={devit.username}
+                ></Devit>
+              )
+            })}
         </section>
         <nav></nav>
       </AppLayout>
       <style jsx>
         {`
           header {
+            background: ${colors.white};
             display: flex;
             align-items: center;
-            border: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
             position: sticky;
             height: 49px;
             width: 100%;
             top: 0;
           }
           nav {
+            background: ${colors.white};
             display: flex;
             align-items: center;
-            border: 1px solid #ccc;
+            border-top: 1px solid #ccc;
             width: 100%;
             position: sticky;
             height: 49px;
@@ -54,7 +60,7 @@ const HomePage = () => {
             font-weight: 800;
           }
           section {
-            padding-top: 100px;
+            padding-top: 4px;
           }
         `}
       </style>

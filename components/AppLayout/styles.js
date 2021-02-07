@@ -8,6 +8,7 @@ const backgroundColor = addOpacityColor(colors.primary, 0.3)
 export const globalStyles = css.global`
   html,
   body {
+    overflow: hidden;
     background-image: radial-gradient(${backgroundColor} 3px, #fdfdfd 3px),
       radial-gradient(${backgroundColor} 3px, #fdfdfd 3px);
     background-position: 0 0, 25px 25px;
@@ -33,6 +34,7 @@ export default css`
     height: 100vh;
     position: relative;
     width: 100%;
+    overflow-y: auto;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
