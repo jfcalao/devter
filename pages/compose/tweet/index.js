@@ -38,7 +38,10 @@ const TweetPage = () => {
         console.log("devit added", docRef)
         router.push("/home")
       })
-      .catch((err) => console.error("Error adding devit ", err))
+      .catch((err) => {
+        console.error("Error adding devit ", err)
+        setStatus(COMPOSE_STATES.ERROR)
+      })
   }
   const handleInput = (event) => {
     const inputValue = event.target.value

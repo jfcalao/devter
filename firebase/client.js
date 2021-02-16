@@ -46,3 +46,19 @@ export const addDevit = (devit) => {
   }
   return db.collection("devit").add(newDevit)
 }
+export const fetchLatestDevits = () => {
+  return db
+    .collection("devit")
+    .get()
+    .then((snapshot) => {
+      return snapshot.docs.map((doc) => {
+        const data = doc.data()
+        const id = doc.id
+        console.log(data)
+        return {
+          ...data,
+          id,
+        }
+      })
+    })
+}

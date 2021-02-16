@@ -1,6 +1,7 @@
 import Avatar from "components/Avatar"
 
-const Devit = ({ avatar, message, username }) => {
+const Devit = ({ avatar, message, username, createdAt }) => {
+  const date = new Date(createdAt.seconds).toDateString()
   return (
     <>
       <article>
@@ -8,7 +9,10 @@ const Devit = ({ avatar, message, username }) => {
           <Avatar src={avatar} alt={username}></Avatar>
         </div>
         <section>
-          <strong>{username}</strong>
+          <header>
+            <strong>{username}</strong>
+            <small>{date}</small>
+          </header>
           <p>{message}</p>
         </section>
       </article>

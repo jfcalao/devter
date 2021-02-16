@@ -3,15 +3,17 @@ import { useState, useEffect } from "react"
 import Devit from "components/Devit"
 import { colors } from "styles/theme"
 import useUser from "hooks/useUser"
+import { fetchLatestDevits } from "firebase/client"
 
 const HomePage = () => {
   const [devitList, setDevitList] = useState([])
   const user = useUser()
   useEffect(() => {
+    console.log(fetchLatestDevits())
     user &&
-      fetch("http://localhost:3000/api/statuses/home_timeline")
-        .then((res) => res.json())
+      fetchLatestDevits()
         .then(setDevitList)
+        .catch((err) => console.error(err))
   }, [user])
   return (
     <>
@@ -25,8 +27,11 @@ const HomePage = () => {
               <Devit
                 key={devit.id}
                 avatar={devit.avatar}
-                message={devit.message}
+                message={devit.content}
                 username={devit.username}
+                createdAt={devit.createdAt}
+                likesCount={devit.likesCount}
+                sharedCount={devit.sharedCount}
               ></Devit>
             )
           })}
