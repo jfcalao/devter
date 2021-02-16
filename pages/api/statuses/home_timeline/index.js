@@ -29,7 +29,7 @@ const timeline = [
 Clean Code es un libro obsoleto que en 2020, con los paradigmas de desarrollo de software que manejamos, puede hacerte más daño que beneficio.`,
   },
   {
-    id: "2",
+    id: "3",
     username: "d4nidev",
     name: "Daniel de la Cruz",
     avatar:
@@ -39,7 +39,7 @@ Clean Code es un libro obsoleto que en 2020, con los paradigmas de desarrollo de
 Clean Code es un libro obsoleto que en 2020, con los paradigmas de desarrollo de software que manejamos, puede hacerte más daño que beneficio.`,
   },
   {
-    id: "2",
+    id: "4",
     username: "d4nidev",
     name: "Daniel de la Cruz",
     avatar:
@@ -49,7 +49,7 @@ Clean Code es un libro obsoleto que en 2020, con los paradigmas de desarrollo de
 Clean Code es un libro obsoleto que en 2020, con los paradigmas de desarrollo de software que manejamos, puede hacerte más daño que beneficio.`,
   },
   {
-    id: "2",
+    id: "5",
     username: "d4nidev",
     name: "Daniel de la Cruz",
     avatar:
@@ -59,7 +59,7 @@ Clean Code es un libro obsoleto que en 2020, con los paradigmas de desarrollo de
 Clean Code es un libro obsoleto que en 2020, con los paradigmas de desarrollo de software que manejamos, puede hacerte más daño que beneficio.`,
   },
   {
-    id: "2",
+    id: "6",
     username: "d4nidev",
     name: "Daniel de la Cruz",
     avatar:

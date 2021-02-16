@@ -10,6 +10,8 @@ const firebaseConfig = {
   measurementId: "G-H0TKLJRKLW",
 }
 !firebase.apps.length && firebase.initializeApp(firebaseConfig)
+
+const db = firebase.firestore()
 const mapFirebaseUserToUser = (user) => {
   console.log(user)
   if (user) {
@@ -38,5 +40,9 @@ export const loginWithGithub = () => {
   return firebase.auth().signInWithPopup(gitHubProvider)
 }
 export const addDevit = (devit) => {
-  console.log("devit added", devit)
+  const newDevit = {
+    ...devit,
+    createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
+  }
+  return db.collection("devit").add(newDevit)
 }
