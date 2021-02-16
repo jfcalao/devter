@@ -1,9 +1,11 @@
 import { colors } from "../../styles/theme"
 
-const Button = ({ children, onClick }) => {
+const Button = ({ children, onClick, disabled }) => {
   return (
     <>
-      <button onClick={onClick}>{children}</button>
+      <button disabled={disabled} onClick={onClick}>
+        {children}
+      </button>
       <style jsx>
         {`
           button {
@@ -19,6 +21,11 @@ const Button = ({ children, onClick }) => {
             transition: opacity 0.3s ease;
             display: flex;
             align-items: center;
+            user-select: none;
+          }
+          button[disabled] {
+            opacity: 0.2;
+            pointer-events: none;
           }
           button > :global(svg) {
             margin-right: 8px;

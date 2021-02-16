@@ -13,11 +13,12 @@ const firebaseConfig = {
 const mapFirebaseUserToUser = (user) => {
   console.log(user)
   if (user) {
-    const { displayName, email, photoURL } = user
+    const { displayName, email, photoURL, uid } = user
     return {
       username: displayName,
-      avatar_url: photoURL,
+      avatar: photoURL,
       email,
+      uid,
     }
   } else {
     return null
@@ -35,4 +36,7 @@ export const onAuthStateChanged = (onChange) => {
 export const loginWithGithub = () => {
   const gitHubProvider = new firebase.auth.GithubAuthProvider()
   return firebase.auth().signInWithPopup(gitHubProvider)
+}
+export const addDevit = (devit) => {
+  console.log("devit added", devit)
 }

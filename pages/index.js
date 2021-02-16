@@ -46,8 +46,8 @@ export default function Home() {
             {user === USER_STATE.NOT_KNOWN && (
               <img src="spinner.gif" alt="Loading"></img>
             )}
-            {user && user.avatar_url && (
-              <Avatar src={user.avatar_url} userName={user.username}></Avatar>
+            {user && user.avatar && (
+              <Avatar src={user.avatar} userName={user.username}></Avatar>
             )}
           </div>
         </section>
