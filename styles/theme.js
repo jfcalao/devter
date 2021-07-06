@@ -4,7 +4,7 @@ export const fonts = {
 }
 export const colors = {
   black: "#000000",
-  white: "white",
+  white: "#ffffff",
   primary: "#0049ff",
   secondary: "#0099ff",
 }
